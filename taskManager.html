@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="taskManager.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <div class="header">
+        <div class="header-content">
+          <div class="header-left">
+            <div class="logo">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <rect width="48" height="48" rx="8" fill="#4A90E2" />
+                <path
+                  d="M12 22L18 28L36 14"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <h1>Task Manager</h1>
+              <p class="subtitle">
+                Manage your tasks easily and stay productive.
+              </p>
+            </div>
+          </div>
+          <div class="header-right">
+            <div class="stat-card">
+              <div class="stat-icon">📋</div>
+              <div class="stat-info">
+                <p class="stat-label">Total Tasks</p>
+                <p class="stat-value" id="totalTasks">0</p>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">✓</div>
+              <div class="stat-info">
+                <p class="stat-label">Completed Tasks</p>
+                <p class="stat-value" id="completedTasks">0</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Task Section -->
+      <div class="new-task-section">
+        <label for="taskInput" class="task-label">New Task</label>
+        <div class="input-group">
+          <input
+            type="text"
+            id="taskInput"
+            class="task-input"
+            placeholder="e.g., Learn JavaScript basics"
+          />
+          <button class="add-button" id="addTaskBtn">+ Add Task</button>
+        </div>
+      </div>
+
+      <!-- Filter Section -->
+      <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+        <button class="filter-btn" data-filter="incomplete">Incomplete</button>
+      </div>
+
+      <!-- Tasks List -->
+      <template id="task-template">
+        <div class="task-item">
+          <div class="task-checkbox">
+            <!-- Removed the hardcoded 'task5' ID so JavaScript can assign unique ones -->
+            <input type="checkbox" class="checkbox" />
+          </div>
+          <div class="task-content">
+            <label class="task-name"></label>
+          </div>
+          <div class="task-badges"></div>
+          <button class="menu-btn">⋮</button>
+          <div class="menu-btn-select" hidden>
+            <ul id="status-list" class="status-list-class">
+              Status
+              <li>Pending</li>
+              <li>Completed</li>
+            </ul>
+            <ul id="task-priority" class="task-priority-class">
+              Priority
+              <li>High</li>
+              <li>Medium</li>
+              <li>Low</li>
+            </ul>
+          </div>
+        </div>
+      </template>
+
+      <div class="tasks-container"></div>
+
+      <!-- Footer Message -->
+      <div class="footer-message"><span>©️ Dare Ogunsola</span></div>
+    </div>
+
+    <script src="taskManager.js"></script>
+  </body>
+</html>
